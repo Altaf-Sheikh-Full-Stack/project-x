@@ -1,0 +1,49 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - auth-service
+    networks:
+      - app-network
+
+  frontend:
+    image: frontend:latest
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ../frontend/vite-project:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - app-network
+
+  auth-service:
+    image: auth-service:latest
+    container_name: auth-service
+    working_dir: /app
+    volumes:
+      - ../backend/auth:/app
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - app-network
+
+  mongo:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" 
+    networks:
+      - app-network
+
+
+
+networks:
+  app-network:
+    driver: bridge

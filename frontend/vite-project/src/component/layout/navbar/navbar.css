@@ -1,0 +1,22 @@
+.Navbar {
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    display: flex;
+    justify-content: end;
+}
+
+.Navbar p {
+    cursor: context-menu;
+    margin: 0%;
+    padding: 10px;
+    padding-inline: 40px;
+    font-size: 20px;
+}
+
+
+
+.Navbar p:hover{
+    border-bottom: 2px red solid;
+}
+

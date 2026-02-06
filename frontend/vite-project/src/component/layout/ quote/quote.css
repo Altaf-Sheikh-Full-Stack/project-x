@@ -1,0 +1,15 @@
+.quote-heading{
+    font-size: larger;
+    /* background-color: aqua; */
+    
+}
+
+.quote-heading h1{
+    margin: 0%;
+}
+
+.quote{
+    background-color: red;
+    margin: 0%;
+    padding: 100px;
+}

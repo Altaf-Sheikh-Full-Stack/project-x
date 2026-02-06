@@ -1,0 +1,36 @@
+.footer{
+    background-color: red;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+
+.footer-item{
+    background-color: rgb(201, 201, 255);
+    margin: 10px;
+    padding: 10px;
+}
+
+#footer-item1{
+    grid-area: 1/1/1/5;
+}
+#footer-item2{
+    grid-area: 2/1/6/1;
+}
+
+#footer-item3{
+    grid-area: 2/2/6/2;
+}
+
+#footer-item4{
+    grid-area: 2/3/6/3;
+}
+
+#footer-item5{
+    grid-area: 2/4/6/4;
+}
+
+#footer-item6{
+    grid-area: 6/1/6/5;
+}

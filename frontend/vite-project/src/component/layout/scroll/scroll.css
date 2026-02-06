@@ -1,0 +1,38 @@
+
+.scroll-container{
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(255, 212, 212);
+    padding: 10px;
+}
+
+.scroll-img{
+    height: 80px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin: 10px;
+}
+
+
+.scroll-track{
+    display: flex;
+    width: max-content;
+    animation: scroll 10s linear infinite;
+    gap: 50px;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-20%);
+    }
+}
+
+.scroll-container:hover .scroll-track{
+    animation-play-state: paused;
+}

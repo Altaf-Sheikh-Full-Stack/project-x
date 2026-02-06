@@ -1,0 +1,15 @@
+.ButtonSecondary{
+    border: none;
+    background-color: gray;
+    padding: 10px;
+    font-size: 20px;
+    padding-inline: 40px;
+    cursor: pointer;
+    transition: 250ms;
+    color: white;
+    font-weight: 500;
+}
+
+.ButtonSecondary:hover{
+    background-color: rgb(100, 100, 100);
+}

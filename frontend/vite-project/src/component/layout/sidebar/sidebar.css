@@ -1,0 +1,9 @@
+.sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: max-content;
+    height: 100vh;
+    cursor: pointer;
+}
