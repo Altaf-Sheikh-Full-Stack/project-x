@@ -1,4 +1,5 @@
 input{
-    border: 2px gray solid;
+    border: 1px gray solid;
     padding: 10px;
+    border-radius: 4px;
 }

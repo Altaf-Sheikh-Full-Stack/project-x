@@ -18,10 +18,10 @@ const Login = () => {
                     check: e.target.check.checked
                 }),
             })
-        }catch (err){
+        } catch (err) {
             console.log(err)
         }
-        
+
     }
     return (
         <div className="loginTop">
@@ -29,17 +29,13 @@ const Login = () => {
             <form className="loginForm" onSubmit={sendLoginData}>
                 <Input name={"email"} type={'email'} placeholder={"Enter email"} required={"required"} />
                 <Input name={"password"} type={'password'} placeholder={"Enter password"} required={"required"} />
-                <div className="chekbox">
-                    <Input name={"check"} type={'checkbox'} />
-                    <p>Remember me</p>
-                </div>
                 <ButtonPrimary buttonPrimary={"Login"} type={"submit"} />
+                <p>Don't have a account? <NavLink to={'/register'} >
+                     create an account
+                </NavLink> </p>
+                <p>Forgot password? <a href="">Reset now</a></p>
             </form>
-            <NavLink to={'/register'} >
-                Don't have a account? create an account
-            </NavLink>
 
-            <p>Forgot password? <a href="">Reset now</a></p>
         </div>
     )
 }

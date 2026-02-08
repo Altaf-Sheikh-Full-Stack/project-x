@@ -1,0 +1,42 @@
+.passwordRequirement{
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.passwordRequirement p{
+    font-size: small;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 1%;
+}
+
+.passwordRequirement h4{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 1px;
+}
+
+
+.passwordSecurityBar{
+    height: 10px;
+    border-radius: 10px;
+    border: 1px gray solid;
+}
+
+.passwordSecurityBarChild{
+    height: 10px;
+    transition: 0.5s;
+}
+
+.passdiv{
+    display: flex;
+    align-items: center;
+}
+
+.openEye{
+    height: 20px;
+    border-radius: 7px;
+    margin-inline: 10px;
+    background-color: rgb(245, 219, 255);
+    padding: 10px;
+    cursor: pointer;
+}

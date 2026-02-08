@@ -9,6 +9,7 @@ const registerService = async ({name, email, password}) => {
     if(existingUser){
         throw new Error("USER_EXISTS")
     }
+    
 
     const salt = await bcrypt.genSalt(10)
     const hashPassword = await bcrypt.hash(password, salt)
@@ -20,7 +21,7 @@ const registerService = async ({name, email, password}) => {
         password:hashPassword
     });
 
-    const token = genrateToken(user)
+    const token = genrateToken(user.email, user._id)
     return {user, token}
 }
 
