@@ -7,7 +7,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const url = "/api/auth/login"
-            const loginDataToServer = fetch(url, {
+            const loginDataToServer = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -15,11 +15,18 @@ const Login = () => {
                 body: JSON.stringify({
                     email: e.target.email.value,
                     password: e.target.password.value,
-                    check: e.target.check.checked
                 }),
             })
+
+            const data = await loginDataToServer.json()
+
+            if(loginDataToServer.ok){
+                console.log("find the user")
+            }else{
+                console.log(data.message)
+            }
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
 
     }

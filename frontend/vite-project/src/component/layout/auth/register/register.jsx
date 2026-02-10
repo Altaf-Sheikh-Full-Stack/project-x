@@ -6,8 +6,9 @@ import ErrorBlock from "../../../common/errorblock/errorblock"
 import './register.css'
 import eye from './img/eye.svg'
 import eyeClose from './img/eye-slash.svg'
+import App from "../../../../App";
 const Register = () => {
-
+    App()
     const [crossLen, setCrossLen] = useState("")
     const [crossUppercase, setCrossUppercase] = useState("")
     const [crossLowercase, setCrossLowercase] = useState("")
@@ -21,6 +22,8 @@ const Register = () => {
     const [checkEye, setCheckEye] = useState(eye)
     const [passwordType, setPasswordType] = useState("password")
     const [numpoint, setNumPoint] = useState(0)
+
+
 
     let bool
     const nameCount = (e) => {
@@ -106,6 +109,7 @@ const Register = () => {
         e.preventDefault();
         if (numpoint === 4 && e.target.name.value.length < 12) {
             try {
+
                 const res = await fetch("/api/auth/register", {
                     method: "POST",
                     headers: {
@@ -127,16 +131,20 @@ const Register = () => {
                 }
 
                 console.log("SUCCESS:", data.message);
+
+                window.location.reload();
+
             } catch (err) {
                 console.log(err)
             }
-        }else{
+        } else {
             console.log("come up with all point")
         }
 
 
     }
     return (
+
         <div className="loginTop">
             <ErrorBlock heading={errorHeaders} description={errorDescription} />
             <form className="loginForm" onSubmit={sendRegisterData}>
@@ -166,7 +174,10 @@ const Register = () => {
                     <p style={{ textDecoration: crossNumber }}>Password should containe number 1-9</p>
                     <p style={{ textDecoration: crossSpecial }}>Password should containe speacial character !  @  #  $  %  &  ? </p>
                 </span>
+                {/* <NavLink to='/email-verify'>  */}
                 <ButtonPrimary buttonPrimary={"Create account"} />
+                {/* </NavLink> */}
+
                 <p>already have a account? <NavLink to={'/login'}>
                     Login
                 </NavLink></p>

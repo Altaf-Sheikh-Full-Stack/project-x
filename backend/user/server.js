@@ -1,18 +1,14 @@
 const express = require('express')
 const app = express()
+import cookieParser from 'cookie-parser'
 require('dotenv').config()
+app.use(cookieParser())
 
 
-app.get('/dashboard', (req, res)=>{
-    res.send("User")
-    console.log("User")
-})
+app.get('/', )
 
 const port = process.env.PORT
 
-if(port){
-    console.log("User, server is ")
-    app.listen(port)
-}else{
-
-}
+app.listen(port, () => {
+    console.log(`server is runnung at ${port}`)
+})

@@ -1,26 +1,46 @@
-const nodemailer = require("nodemailer");
+import nodemailer from 'nodemailer'
+import dotenv from 'dotenv'
+dotenv.config()
 
-// Create a transporter using Ethereal test credentials.
-// For production, replace with your actual SMTP server details.
-const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  secure: false, // Use true for port 465, false for port 587
-  auth: {
-    user: "maddison53@ethereal.email",
-    pass: "jn7jnAPss4f63QBp6D",
-  },
-});
-
-// Send an email using async/await
-(async () => {
-  const info = await transporter.sendMail({
-    from: '"Maddison Foo Koch" <maddison53@ethereal.email>',
-    to: "bar@example.com, baz@example.com",
-    subject: "Hello ✔",
-    text: "Hello world?", // Plain-text version of the message
-    html: "<b>Hello world?</b>", // HTML version of the message
+const emailService = (email) => {
+  
+  const transporter = nodemailer.createTransport({
+    host: "mail.smtp2go.com",
+    port: 2525,
+    secure: false, // Use true for port 465, false for port 587
+    auth: {
+      user: "Email_server_1",
+      pass: process.env.PASS
+    },
   });
 
-  console.log("Message sent:", info.messageId);
-})();
+
+
+  // Send an email using async/await
+  const main = async () => {
+    try {
+      const info = await transporter.sendMail({
+        from: '"Maddison Foo Koch" <noreplay@motionofmotion.com>',
+        to: email,
+        subject: "Hello ✔",
+        text: "Hello world?",
+        html: "<b>Hello world?</b>",
+      });
+
+      if (info.messageId) {
+        console.log("Message sent:", info.messageId)
+      } else {
+        console.log("cant send eamil")
+      }
+      console.log();
+      console.log(info)
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  main()
+}
+
+export default emailService

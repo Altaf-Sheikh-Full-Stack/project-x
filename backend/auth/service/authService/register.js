@@ -18,10 +18,11 @@ const registerService = async ({name, email, password}) => {
     const user = await userModel.create({
         name,
         email,
-        password:hashPassword
+        password:hashPassword,
+        verified:false
     });
 
-    const token = genrateToken(user.email, user._id)
+    const token = genrateToken(user)
     return {user, token}
 }
 

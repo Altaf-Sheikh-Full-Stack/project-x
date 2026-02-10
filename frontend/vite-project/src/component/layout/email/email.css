@@ -1,0 +1,12 @@
+.emailCard{
+    margin: auto;
+    background-color: white;
+    max-width: 30rem;
+    margin-top: 10px;
+    padding: 50px;
+    text-align: center;
+}
+
+.emailCard img{
+    width: 300px;
+}
