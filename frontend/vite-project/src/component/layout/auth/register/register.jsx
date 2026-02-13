@@ -174,10 +174,7 @@ const Register = () => {
                     <p style={{ textDecoration: crossNumber }}>Password should containe number 1-9</p>
                     <p style={{ textDecoration: crossSpecial }}>Password should containe speacial character !  @  #  $  %  &  ? </p>
                 </span>
-                {/* <NavLink to='/email-verify'>  */}
                 <ButtonPrimary buttonPrimary={"Create account"} />
-                {/* </NavLink> */}
-
                 <p>already have a account? <NavLink to={'/login'}>
                     Login
                 </NavLink></p>

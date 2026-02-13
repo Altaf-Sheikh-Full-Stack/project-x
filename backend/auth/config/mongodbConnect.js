@@ -6,7 +6,7 @@ dotenv.config()
     
 const mongodb = process.env.MONGODB_URI
 if (!mongodb) {
-    console.log("mongodb url is missing")
+    console.log("mongodb env file is missing")
 } else {
     mongoose
         .connect(mongodb)

@@ -1,19 +1,30 @@
 import Sidebar from "../../../layout/sidebar/sidebar";
 import './dataSource.css'
-import plus from './svg/plus.svg'
-const DataSource = () =>{
-    return(
-        <div className="pageDataSource">
-            <div className="sidebarDataSource">
-                <Sidebar/>
+import DashboardNavbar from "../../../layout/dashboardNavbar/dashboardNavbar";
+import WarehouseCompo from "../../../layout/warehouse/warehouse";
+import Model from "../../../layout/model/model";
+import { useState } from "react";
+const DataSource = () => {
+    const [state, setState] = useState()
+
+  
+    const click = () => setState("flex")
+
+    const getData = (data) => setState(data)
+
+
+
+
+    return (
+        <>
+        <Model  state={state} onClick={getData} />
+            <DashboardNavbar/>
+            <div className="pageDataSource">
+                <Sidebar />
+                <WarehouseCompo delete={"delete"} onClick={click} SearchPlaceholder={'Search data'} buttonValue={"Upload data"} heading={"Data source"} description={"Connect and upload all your data at one place"}/>
             </div>
-            <div className="contentDataSource">
-                <h1>Upload file</h1>
-                <div className="contentDataSourcefile">
-                    <img src={plus} alt="" />
-                </div>
-            </div>
-        </div> 
+
+        </>
     )
 }
 

@@ -1,12 +1,20 @@
 import './sidebar.css'
+import { NavLink } from 'react-router'
 const Sidebar = () => {
-    return(
+    return (
         <div className='sidebar'>
-            <h3>DataSource</h3>
-            <h3>wharehouse</h3>
-            <h3>Computation</h3>
-            <h3>analytics</h3>
-            <h3>AI/ML</h3>
+            <NavLink className="link" to='/dashboard/datasource'>
+                Connector
+            </NavLink>
+            <NavLink className="link" to='/dashboard/warehouse'>
+                wharehouse
+            </NavLink>
+            {/* <NavLink className="link">Computation</NavLink>
+            <NavLink className="link">analytics</NavLink>
+            <NavLink className="link">AI/ML</NavLink> */}
+
+
+
         </div>
     )
 }

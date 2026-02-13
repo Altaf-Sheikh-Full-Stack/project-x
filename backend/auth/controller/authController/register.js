@@ -14,13 +14,13 @@ const registerUser = async (req, res) => {
                 }
 
             }
-        }else{
-          return res.status(401).json({
+        } else {
+            return res.status(401).json({
                 message: "Password length should be min 8 char long",
             });
         }
 
-        
+
 
         console.log(point)
 
@@ -30,10 +30,15 @@ const registerUser = async (req, res) => {
                 email,
                 password,
             })
-            console.log(user)
-            console.log(token)
-            res.cookie("token", token)
-           return res.status(200).json({
+
+            res.cookie("token", token, {
+                httpOnly: true,
+                secure: false, 
+                sameSite: "lax",
+                path: "/"
+            })
+
+            return res.status(200).json({
                 message: "Registered successfully",
             });
         } else {
@@ -45,13 +50,13 @@ const registerUser = async (req, res) => {
 
     } catch (err) {
         if (err.message === "USER_EXISTS") {
-           return res.status(401).json({
+            return res.status(401).json({
                 message: "Somting went wrong try login ",
             });
         }
         if (err) {
             console.log(err)
-           return res.status(500).json({
+            return res.status(500).json({
                 message: "Somthing went wrong",
             });
         }

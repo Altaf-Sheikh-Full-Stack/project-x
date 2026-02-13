@@ -7,7 +7,7 @@ import RegisterPage from './component/page/register/register.jsx'
 import { BrowserRouter, Routes, Route, } from 'react-router'
 import DataSource from './component/page/dashboard/dataSource/dataSource.jsx'
 import EmailVerify from './component/page/emailVerify/emailVerify.jsx'
-
+import WarehousePage from './component/page/dashboard/warehouse/warehouse.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -21,6 +21,7 @@ createRoot(document.getElementById('root')).render(
       </Routes>
       <Routes>
         <Route path='/dashboard/datasource' element={<DataSource />} />
+        <Route path='/dashboard/warehouse' element={<WarehousePage />} />
       </Routes>
     </BrowserRouter>,
   </StrictMode>,
