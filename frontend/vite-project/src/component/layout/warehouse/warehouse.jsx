@@ -1,34 +1,34 @@
+import { useEffect, useState } from 'react'
 import './warehouse.css'
 
 
 const WarehouseCompo = (value) => {
-    const [rowfilename, setRowfilename] = ("")
-    fetch('/api/user/get/rowfile')
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+
+
+
+
     return (
         <div className='wharehouseComp'>
             <div className='wharehouseCompTop'>
                 <div className='wharehouseCompTopHeading'>
-                    <h2>{value.heading}</h2>
-                    <p>{value.description}</p>
+                    <h2>Data warehouse</h2>
+                    <p>Lorem ipsum dolor sit amet conset molestias deserunt eaque porro vel minima sint quas ex ab, quaerat alias dolor neque facere impedit voluptatum quibusdam temporibus assumenda?</p>
                 </div>
                 <div className='wharehouseCompTopButton'>
-                    <button onClick={value.onClick}>{value.buttonValue}</button>
+                    <button>Create database</button>
                 </div>
             </div>
             <hr />
             <div className='wharehouseCompSearch'>
-                <input type="search" placeholder={value.SearchPlaceholder}/>
+                <input type="search" placeholder={value.SearchPlaceholder} />
                 <button>Search</button>
             </div>
-
             <div className='wharehouseDatabase'>
                 <p>Database</p>
                 <div className='wharehouseDatabaseTable'>
                     <div className='wharehouseDatabaseTableChild'>
-                        <p>{value.data}</p> 
-                        <a href="">{value.delete}</a>
+                        <p>file</p>
+                        <a href="">Delete</a>
                     </div>
                 </div>
             </div>

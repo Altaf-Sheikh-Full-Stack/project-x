@@ -3,11 +3,17 @@ import './dataSource.css'
 import DashboardNavbar from "../../../layout/dashboardNavbar/dashboardNavbar";
 import WarehouseCompo from "../../../layout/warehouse/warehouse";
 import Model from "../../../layout/model/model";
-import { useState } from "react";
+import Connector from "../../../layout/connector/connector";
+import { useState, useEffect } from "react";
 const DataSource = () => {
+
+   
+
+
+
     const [state, setState] = useState()
 
-  
+
     const click = () => setState("flex")
 
     const getData = (data) => setState(data)
@@ -15,13 +21,15 @@ const DataSource = () => {
 
 
 
+
     return (
         <>
-        <Model  state={state} onClick={getData} />
-            <DashboardNavbar/>
+
+            <Model state={state} onClick={getData} />
+            <DashboardNavbar />
             <div className="pageDataSource">
                 <Sidebar />
-                <WarehouseCompo delete={"delete"} onClick={click} SearchPlaceholder={'Search data'} buttonValue={"Upload data"} heading={"Data source"} description={"Connect and upload all your data at one place"}/>
+                <Connector onClick={click}/>
             </div>
 
         </>

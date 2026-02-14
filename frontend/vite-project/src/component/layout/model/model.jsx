@@ -39,14 +39,14 @@ const Model = (value) => {
         if (response.ok) {
             close()
             console.log("file submitted sucessfully")
+            window.location.reload();
         }
 
         if (!response.ok) {
             console.log("error submitting file")
         }
 
-      
-
+        
     }
 
     return (

@@ -12,8 +12,7 @@ const WarehousePage = () => {
         <DashboardNavbar/>
         <div className="pageDataSource">
             <Sidebar/>
-            
-            <WarehouseCompo onClick={"add"} SearchPlaceholder={'Search database'} buttonValue={"Create database"}  heading={"Data wharehouse"} description={"A place all your data lives in a manner"}/>
+            <WarehouseCompo/>
         </div>
         </>
     )
