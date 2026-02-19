@@ -1,19 +1,19 @@
 import rowFiles from "../../model/rowFiles.js"
+import userModel from "../../model/user.js"
+import mongoose from "mongoose";
+import deleterowfileservice from "../../service/rowfile/delete.js";
 
 const deleterowfile = async (req, res) => {
-    const { id } = req.body
-
-    const deletedoc = await rowFiles.findOneAndDelete({ _id: id })
-    if (deletedoc) {
-        res.status(200).json({
-            messgae: "Document deleted"
-        })
-    } else {
-        res.status(404).json({
-            messgae: "Can't find document to delete"
-        })
+    try{
+        const { id, userid } = req.body
+        await deleterowfileservice(id, userid)
+    }catch(err){
+        if (err.message) {
+            res.status(404).json({
+                message: "user not found"
+            })
+        }
     }
-
 }
 
 

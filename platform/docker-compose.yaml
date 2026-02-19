@@ -44,11 +44,11 @@ services:
     networks:
       iceberg_net:
         aliases:
-          - warehouse.minio
+          - warehouse.minio/app
     ports:
       - 9001:9001
       - 9000:9000
-    command: ["server", "/data", "--console-address", ":9001"]
+    command: [ "server", "/data", "--console-address", ":9001" ]
   mc:
     depends_on:
       - minio

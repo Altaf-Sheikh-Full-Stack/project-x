@@ -32,8 +32,8 @@ const Login = () => {
     }
     return (
         <div className="loginTop">
-            <h2>Login to your accoute</h2>
             <form className="loginForm" onSubmit={sendLoginData}>
+                <h2>Login to your accoute</h2>
                 <Input name={"email"} type={'email'} placeholder={"Enter email"} required={"required"} />
                 <Input name={"password"} type={'password'} placeholder={"Enter password"} required={"required"} />
                 <ButtonPrimary buttonPrimary={"Login"} type={"submit"} />

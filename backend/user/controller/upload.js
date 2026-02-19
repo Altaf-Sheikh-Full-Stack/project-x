@@ -7,6 +7,11 @@ const uploadFile = async (req, res) => {
     try {
         const { fileName } = req.body
         const tokens = req.cookies.token
+        if (!tokens) {
+            return res.status(400).json({
+                messgae: "cookie not found"
+            })
+        }
         const decode = jwt.verify(tokens, process.env.JWT_KEY)
 
         if (!fileName) {
@@ -17,10 +22,8 @@ const uploadFile = async (req, res) => {
 
         
 
-        await rowFileUploadServiec(fileName, decode)
-
         const command = new PutObjectCommand({
-            Bucket: "rowfiles", 
+            Bucket: "rowfiles",
             Key: `${decode.id}/${fileName}`,
             ContentType: "csv"
         })
@@ -29,12 +32,23 @@ const uploadFile = async (req, res) => {
             expiresIn: 300
         })
 
-        res.json({ url})
+        res.json({ url })
+
+        if(url.ok){
+            await rowFileUploadServiec(fileName, decode)
+        }
+
 
 
     } catch (err) {
+        if (err.message === "USER_NOT_FOUND") {
+            return  res.status(404).json({
+                message:"user not found"
+                
+            })
+        }
         console.error(err)
-        res.status(500).json({ error: "Failed to generate upload URL" })
+        res.status(500).json({ error: "Somting went wrong" })
     }
 }
 

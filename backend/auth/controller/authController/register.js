@@ -3,7 +3,7 @@ import registerService from '../../service/authService/register.js'
 
 const registerUser = async (req, res) => {
     try {
-
+        console.log(req.body)
         const { name, email, password } = req.body
         let point = 0
         if (password.length >= 8) {

@@ -1,3 +1,7 @@
 .errorBlock{
     background-color: rgba(255, 0, 0, 0.397);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding-inline: 10px;
 }

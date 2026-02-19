@@ -5,9 +5,10 @@ import Home from './component/page/home/home.jsx'
 import LoginPage from './component/page/login/login.jsx'
 import RegisterPage from './component/page/register/register.jsx'
 import { BrowserRouter, Routes, Route, } from 'react-router'
-import DataSource from './component/page/dashboard/dataSource/dataSource.jsx'
+import ConnectorPage from './component/page/dashboard/connector/connector.jsx'
 import EmailVerify from './component/page/emailVerify/emailVerify.jsx'
-import WarehousePage from './component/page/dashboard/warehouse/warehouse.jsx'
+import CatalogPage from './component/page/dashboard/warehouse/catalog/catalog.jsx'
+import DatabasePage from './component/page/dashboard/warehouse/database/database.jsx'
 import {
   QueryClient,
   QueryClientProvider,
@@ -30,8 +31,11 @@ createRoot(document.getElementById('root')).render(
         </Routes>
 
         <Routes>
-          <Route path='/dashboard/datasource' element={<DataSource />} />
-          <Route path='/dashboard/warehouse' element={<WarehousePage />} />
+          
+          <Route path='/connector' element={<ConnectorPage />} />
+          <Route path='/warehouse' element={<CatalogPage />} />
+          <Route path='warehouse/database:id' element={<DatabasePage/>} />
+          <Route path='warehouse/database' element={<DatabasePage/>} />
         </Routes>
 
       </BrowserRouter>

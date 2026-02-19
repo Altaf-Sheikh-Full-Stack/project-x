@@ -1,17 +1,63 @@
-.hero{
+.hero {
     display: flex;
-    height: 100vh;
+    max-width: 1920px;
+    margin: auto;
 }
 
 
-.hero-child{
-    margin: 10px;
-    padding: 10px;
+.hero-child {
+    padding-inline: 50px;
+    display: flex;
+    align-items: center;
     width: 50%;
-    
+    background-color: white;
+}
+
+.hero-2-child{
+    width: 50%;
+
+    /* need to remove */
+    /* height: 100%; */
+}
+
+.hero-2-child img{
+    height:  100%;
+    width: auto;
+    width: 100%;
+}
+
+.hero-child1-p{
+    background-color: rgb(229, 215, 241);
+    margin-bottom: 0%;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: max-content;
+    border-radius: 1rem;
+}
+
+.hero-child1 h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1.1;   
+    margin-top: 2%;
+    color: #1B3139;
+}
+
+.hero-child1Content h3 {
+   font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 0%;
+    color: #1B3139;
 }
 
 
-.hero-child1 h1{
-    font-size: 3rem;
+.hero-child1Content p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #303030;
 }

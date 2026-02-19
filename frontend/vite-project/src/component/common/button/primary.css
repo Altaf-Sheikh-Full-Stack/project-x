@@ -1,6 +1,6 @@
 .ButtonPrimary{
     border: none;
-    background-color: rgb(255, 0, 0);
+    background-color: blueviolet;
     padding: 10px;
     font-size: 20px;
     padding-inline: 40px;
@@ -12,5 +12,5 @@
 }
 
 .ButtonPrimary:hover{
-    background-color: rgb(180, 0, 0);
+    background-color: rgb(111, 0, 214);
 }

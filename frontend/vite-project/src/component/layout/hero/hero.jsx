@@ -1,20 +1,31 @@
 import './hero.css'
 import ButtonPrimary from "../../common/button/primary"
-import ButtonSecondary from  "../../common/button/secondary"
+import ButtonSecondary from "../../common/button/secondary"
+import img from './img/Component 1 (1).png'
+// import img from './img/Component 1.svg'
 const Hero = () => {
     return <div className="hero">
         <div className='hero-child'>
             <div className='hero-child1'>
-            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae odit aspernatur quidem tenetur laboriosam aut laborum, cupiditate molestiae dolor tempora tempore explicabo aperiam eaque excepturi, distinctio exercitationem. Excepturi, voluptatum debitis.</p>
-            <ButtonSecondary buttonSecondary={"LogIn"}/>
-            <ButtonPrimary buttonPrimary={"Create account"} />
-            <p>Create account it's free, No credit card required</p>
+                <p className='hero-child1-p'>An open source and free project</p>
+                <h1>Transform Your Business with AI & Big Data</h1>
+                <div className='hero-child1Content'>
+                    <h3>Automate operations. Predict outcomes. Accelerate growth.</h3>
+                    <p>
+                        Leverage advanced AI trained on your business data to optimize workflows,
+                        reduce costs, and uncover actionable insights. From real-time analytics to
+                        intelligent forecasting, our platform empowers you to make data-driven decisions
+                        with confidence.
+                    </p>
+                </div>
+                <ButtonSecondary buttonSecondary={"LogIn"} />
+                <ButtonPrimary buttonPrimary={"Create account"} />
+                <p>Create an account it's free</p>
             </div>
-            
-        </div>
-        <div className='hero-child' >
 
+        </div>
+        <div className='hero-2-child' >
+            <img src={img} alt="" />
         </div>
     </div>
 }

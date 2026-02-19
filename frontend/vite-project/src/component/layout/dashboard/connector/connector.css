@@ -1,0 +1,87 @@
+.connectorComp {
+    background-color: white;
+    padding: 10px;
+}
+
+.connectorCompTopHeading h2{
+    margin-bottom: 0px;
+}
+
+.connectorCompTopHeading p{
+    margin-bottom: 0px;
+    margin-top: 6px;
+}
+
+.connectorCompTop {
+    display: flex;
+    align-items: center;    
+}
+
+
+.connectorCompTopButton {
+    margin-left: auto;
+
+    
+}
+
+/* .connectorCompTopButton button{
+    background-color: rgb(0, 189, 0);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    
+} */
+
+/* .connectorCompTopButton button:hover{
+    background-color: rgb(0, 100, 0);
+} */
+
+
+.connectorCompSearch{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+.connectorCompSearch input{
+    width: 100%;
+    border-radius: 0%;
+}
+
+.connectorCompSearch button{
+     background-color: rgb(204, 204, 204);
+    border: none;
+    padding: 15px;
+   
+   
+}
+
+.connectorDatabase{
+    margin-top: 10px;
+}
+
+.connectorDatabaseTable p{
+    cursor: default;
+}
+
+.connectorDatabaseTable p:hover{
+    text-decoration: underline;
+}
+
+
+
+.connectorDatabaseTableChild{
+    display: flex;
+    border-bottom: 0.1px rgb(221, 221, 221) solid;
+    align-items: flex-end;
+    padding-inline: 10px;
+}
+
+
+
+.connectorDatabaseTableChild a{
+    margin-left: auto;
+    color: red;
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import './scroll.css'
 const Scroll = () => {
     return (
         <div className="scroll-container" >
-            <h1>cloud parter</h1>
+            <h1>Cloud partner</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab alias incidunt voluptas cumque temporibus officia consectetur accusamus expedita ducimus nulla explicabo, atque unde quis velit sit ipsam aliquid! Debitis, quidem.</p>
             <div className="scroll-track">
                 

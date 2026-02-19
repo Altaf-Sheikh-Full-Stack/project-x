@@ -2,8 +2,9 @@ import './model.css'
 import ButtonPrimary from '../../common/button/primary'
 import ButtonSecondary from '../../common/button/secondary'
 import { useState, useEffect } from 'react'
+import ErrorBlock from '../../common/errorblock/errorblock'
 const Model = (value) => {
-
+    const [error, setError] = useState("")
     const [model, setModel] = useState()
 
     useEffect(() => {
@@ -26,8 +27,11 @@ const Model = (value) => {
             })
         })
 
-        const { url} = await res.json()
-
+        const { url } = await res.json()
+        if (!url) {
+            console.log(url.message)
+            setError(url.message)
+        }
         const response = await fetch(url, {
             method: "PUT",
             body: e.target.files[0],
@@ -43,14 +47,16 @@ const Model = (value) => {
         }
 
         if (!response.ok) {
+            setError("error submitting file")
             console.log("error submitting file")
         }
 
-        
+
     }
 
     return (
         <form className='model' style={{ display: model }} onChange={uploadFile} >
+            {error && <ErrorBlock error={error} />}
             <div className='modelCard'>
                 <div className='modelCardTop'>
                     <h3>Upload file</h3>
