@@ -1,8 +1,8 @@
 import './model.css'
-import ButtonPrimary from '../../common/button/primary'
-import ButtonSecondary from '../../common/button/secondary'
+import ButtonPrimary from '../../../../common/button/primary'
+import ButtonSecondary from '../../../../common/button/secondary'
 import { useState, useEffect } from 'react'
-import ErrorBlock from '../../common/errorblock/errorblock'
+import ErrorBlock from '../../../../common/errorblock/errorblock'
 const Model = (value) => {
     const [error, setError] = useState("")
     const [model, setModel] = useState()
@@ -20,7 +20,6 @@ const Model = (value) => {
         e.preventDefault()
         const res = await fetch("/api/user/upload", {
             method: "POST",
-            credentials: "include",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 fileName: e.target.files[0].name,

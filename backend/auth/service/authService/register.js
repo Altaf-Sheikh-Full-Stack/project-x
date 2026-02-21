@@ -23,7 +23,7 @@ const registerService = async ({name, email, password}) => {
     });
 
     const token = genrateToken(user)
-    return {user, token}
+    return {token}
 }
 
 export default registerService

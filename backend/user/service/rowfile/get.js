@@ -1,14 +1,13 @@
-import rowFiles from "../../model/rowFiles.js"
+import rowFilesModel from "../../model/rowFiles.js"
 
-const getrowfileservice = async(decode) => {
-   
-        const rowfile = await rowFiles.find({ userid: decode.id })
+const GetRowFileService = async(decode) => {
+        const rowfile = await rowFilesModel.find({ userId: decode.id })
         if(!rowfile){
-            throw new Error("Row file not found");
+            throw new Error("FILE_NOT_FOUND_TO_DELETE_TO_GET");
         }
 
         return rowfile
 }
 
 
-export default getrowfileservice
+export default GetRowFileService

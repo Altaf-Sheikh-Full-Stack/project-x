@@ -9,9 +9,9 @@ const Sidebar = () => {
             <NavLink className="link" to='/warehouse'>
                 wharehouse
             </NavLink>
-            {/* <NavLink className="link">Computation</NavLink>
-            <NavLink className="link">analytics</NavLink>
-            <NavLink className="link">AI/ML</NavLink> */}
+            <a className="link">Query(in devlopment)</a>
+            <a className="link">analytics(in devlopment)</a>
+            <a className="link">AI/ML(in devlopment)</a>
 
         </div>
     )

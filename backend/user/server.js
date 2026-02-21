@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 
-
 app.use("/",protectRouete , route)
 
 const port = process.env.PORT || 4000

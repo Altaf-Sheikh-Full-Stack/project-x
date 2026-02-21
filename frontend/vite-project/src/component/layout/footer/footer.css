@@ -34,3 +34,9 @@
 #footer-item6{
     grid-area: 6/1/6/5;
 }
+
+
+
+@media screen and (max-width: 1000px) {
+    
+}

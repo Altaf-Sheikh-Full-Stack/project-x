@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config()  
 
 
-    
+
 const mongodb = process.env.MONGODB_URI
 if (!mongodb) {
     console.log("mongodb env file is missing")

@@ -38,7 +38,7 @@
 }
 
 .scroll-img:hover {
-    background-color: blueviolet;
+    background-color: rgb(238, 226, 250);
 }
 
 
@@ -62,3 +62,4 @@
 .scroll-container:hover .scroll-track {
     animation-play-state: paused;
 }
+

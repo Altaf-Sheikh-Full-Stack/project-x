@@ -1,14 +1,14 @@
 import jwt from 'jsonwebtoken'
-import getrowfileservice from "../../service/rowfile/get.js"
-const getrowfile = async (req, res) => {
+import getRowFileService from "../../service/rowfile/get.js"
+const getRowFile = async (req, res) => {
     try {
-        const tokens = req.cookies.token
+        const tokens = req.cookies.AuthToken
         if(!tokens){
             throw new Error("Token not found");
             
         }
         const decode = jwt.verify(tokens, process.env.JWT_KEY)
-        const rowfile = await getrowfileservice(decode)
+        const rowfile = await getRowFileService(decode)
         if (200) {
             res.status(200).json({
                 rowfile
@@ -22,4 +22,4 @@ const getrowfile = async (req, res) => {
 
 }
 
-export default getrowfile
+export default getRowFile

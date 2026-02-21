@@ -9,12 +9,7 @@ const loginUser = async (req, res) => {
             email,
             password
         })
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: false,
-            sameSite: "lax",
-            path: "/"
-        })
+        res.cookie("token", token)
         res.status(200).json({
             message: "User found",
         });

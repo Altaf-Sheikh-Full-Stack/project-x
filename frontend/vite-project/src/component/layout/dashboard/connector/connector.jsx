@@ -57,7 +57,7 @@ const Connector = (value) => {
             <div className='connectorDatabase'>
                 {error && <p>Somthing went wrong can't get data try after some time</p>}
                 {isPending && <Loading/>}
-                {!isPending && data.length === 0 && <p>No data found</p>}
+                {!isPending  && data.length === 0 && <p>No data found</p>}
                 <div className='connectorDatabaseTable'>
                     {data.map(file => (
                         <div key={file._id} className='connectorDatabaseTableChild'>

@@ -4,6 +4,7 @@
     font-size: larger;
     display: flex;
     justify-content: end;
+    align-items: center;
 }
 
 .Navbar p {
@@ -14,6 +15,22 @@
     font-size: 20px;
 }
 
+.opennavbarmodel {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    cursor: pointer;
+    height: 100%;
+}
 
 
+@media screen and (max-width: 1000px) {
+    .Navbar p {
+        display: none;
+    }
+}
 
+@media screen and (min-width: 1000px) {
+    .opennavbarmodel {
+        display: none;
+    }
+}

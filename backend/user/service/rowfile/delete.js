@@ -1,21 +1,12 @@
-const deleterowfileservice =  async(id, userid) => {
-    const session = await mongoose.startSession();
-        await session.withTransaction(async () => {
-            const user = await userModel.findOne({ _id: userid }).session(session)
-            if(!user){
-                throw new Error("user not found")
-            }
-            user.rowfilelist.pull(new mongoose.Types.ObjectId(id))
-            await user.save({ session });
-            await rowFiles.findByIdAndDelete(id).session(session);
-        })
-     
-        if (error) {
-            throw new Error("somting went wrong")
-        }
-        
-        session.endSession();
+import rowFilesModel from "../../model/rowFiles.js"
+
+
+const DeleteRowFileService =  async(id) => {
+    const file = await rowFilesModel.findOneAndDelete({ _id: id })
+    if(!file){
+        throw new Error("FILE_NOT_FOUND_TO_DELETE");
+    }
 }
 
 
-export default deleterowfileservice
+export default DeleteRowFileService

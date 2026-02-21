@@ -14,7 +14,7 @@ function App() {
       }
 
       if (data.message === "You already login and the email is verified") {
-        navigate("/dashboard/datasource");
+        navigate("/connector");
       }
 
     } catch (err) {

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const rowFilesSchems = mongoose.Schema({
-    userid:String,
+    userId:String,
     fileName: String
 })  
 

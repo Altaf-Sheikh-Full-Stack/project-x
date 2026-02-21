@@ -2,7 +2,10 @@ import jwt from 'jsonwebtoken'
 
 
 const protectRouete = (req, res, next) => {
-  const token = req.cookies.token
+
+
+  const token = req.cookies.AuthToken
+
   if (token) {
     const decode = jwt.verify(token, process.env.JWT_KEY)
     if (decode.verified == true) {

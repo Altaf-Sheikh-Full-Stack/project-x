@@ -50,15 +50,10 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
-    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
-    volumes:
-    - mongo_data:/data/db
     networks:
       - app-network
 
 
-volumes:
-  mongo_data:
 
 
 networks:

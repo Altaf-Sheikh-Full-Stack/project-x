@@ -4,7 +4,6 @@ const userSchema = mongoose.Schema({
     email: String,
     password: String,
     verified: Boolean,
-    rowfilelist:Array
 })
 
 

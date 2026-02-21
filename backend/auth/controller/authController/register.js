@@ -3,7 +3,6 @@ import registerService from '../../service/authService/register.js'
 
 const registerUser = async (req, res) => {
     try {
-        console.log(req.body)
         const { name, email, password } = req.body
         let point = 0
         if (password.length >= 8) {
@@ -25,22 +24,18 @@ const registerUser = async (req, res) => {
         console.log(point)
 
         if (point === 4) {
-            const { user, token } = await registerService({
+            const { token } = await registerService({
                 name,
                 email,
                 password,
             })
 
-            res.cookie("token", token, {
-                httpOnly: true,
-                secure: false, 
-                sameSite: "lax",
-                path: "/"
-            })
+            res.cookie("AuthToken", token)
 
             return res.status(200).json({
                 message: "Registered successfully",
             });
+
         } else {
             return res.status(400).json({
                 message: "password is not strong can't submit the user detail",

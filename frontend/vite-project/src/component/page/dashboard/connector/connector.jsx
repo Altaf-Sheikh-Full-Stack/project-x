@@ -1,7 +1,7 @@
 import Sidebar from "../../../layout/dashboard/sidebar/sidebar";
 import './connector.css'
 import DashboardNavbar from "../../../layout/dashboard/navbar/navbar";
-import Model from "../../../layout/model/model";
+import Model from "../../../layout/dashboard/connector/model/model";
 import Connector from "../../../layout/dashboard/connector/connector";
 import { useState, useEffect } from "react";
 const ConnectorPage = () => {

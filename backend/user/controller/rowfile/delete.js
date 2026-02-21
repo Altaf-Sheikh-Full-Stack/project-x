@@ -1,12 +1,9 @@
-import rowFiles from "../../model/rowFiles.js"
-import userModel from "../../model/user.js"
-import mongoose from "mongoose";
-import deleterowfileservice from "../../service/rowfile/delete.js";
+import deleteRowFileService from "../../service/rowfile/delete.js";
 
-const deleterowfile = async (req, res) => {
+const deleteRowFileController = async (req, res) => {
     try{
-        const { id, userid } = req.body
-        await deleterowfileservice(id, userid)
+        const {id} = req.body
+        await deleteRowFileService(id)
     }catch(err){
         if (err.message) {
             res.status(404).json({
@@ -17,4 +14,4 @@ const deleterowfile = async (req, res) => {
 }
 
 
-export default deleterowfile
+export default deleteRowFileController
