@@ -10,7 +10,7 @@ services:
       - frontend
       - auth-service
     networks:
-      - app-network
+      - warehouse-net
 
   frontend:
     image: frontend:latest
@@ -21,7 +21,7 @@ services:
       - /app/node_modules
     command: npm run dev
     networks:
-      - app-network
+      - warehouse-net
 
   auth-service:
     image: auth-service:latest
@@ -32,7 +32,7 @@ services:
       - /app/node_modules
     command: npm run dev
     networks:
-      - app-network
+      - warehouse-net
 
   user-service:
     image: user-service:latest
@@ -43,7 +43,7 @@ services:
       - /app/node_modules
     command: npm run dev
     networks:
-      - app-network
+      - warehouse-net
 
   mongo:
     image: mongodb/mongodb-community-server:latest
@@ -51,11 +51,16 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - app-network
+      - warehouse-net
 
 
+
+
+# networks:
+#   app-network:
+#     driver: bridge
 
 
 networks:
-  app-network:
-    driver: bridge
+  warehouse-net:
+    external: true

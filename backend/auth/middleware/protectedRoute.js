@@ -1,7 +1,7 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
-import userModel from '../model/user.js'
+
 
 var app = express()
 app.use(cookieParser())

@@ -3,6 +3,7 @@ import './connector.css'
 import { useQuery } from '@tanstack/react-query'
 import ButtonPrimary from '../../../common/button/primary'
 import Loading from '../loading/loading'
+import Notfound from '../notfound/notfound'
 const Connector = (value) => {
     const getrowfile = async () => {
         const response = await fetch('/api/user/get/rowfile')
@@ -57,7 +58,8 @@ const Connector = (value) => {
             <div className='connectorDatabase'>
                 {error && <p>Somthing went wrong can't get data try after some time</p>}
                 {isPending && <Loading/>}
-                {!isPending  && data.length === 0 && <p>No data found</p>}
+                
+                {!isPending  && data.length === 0 && <Notfound value={'No file found click upload file button(at the top right) to upload file and get started'}/>}
                 <div className='connectorDatabaseTable'>
                     {data.map(file => (
                         <div key={file._id} className='connectorDatabaseTableChild'>

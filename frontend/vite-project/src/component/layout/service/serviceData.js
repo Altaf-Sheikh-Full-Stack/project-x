@@ -1,34 +1,37 @@
+
+
+
 export const ServiceData = [
     {
-        button: "ai",
+        button: "AI",
         item: [{
             title: 'altaf',
             des: "coma main"
         }]
     },
     {
-        button: "ai1",
+        button: "Security",
         item: [{
             title: 'altaf1',
             des: "coma main"
         }]
     },
     {
-        button: "ai2",
+        button: "Query",
         item: [{
             title: 'altaf2',
             des: "coma main"
         }]
     },
     {
-        button: "ai3",
+        button: "Warehousing",
         item: [{
             title: 'altaf3',
             des: "coma main"
         }]
     },
     {
-        button: "ai4",
+        button: "ETL",
         item: [{
             title: 'altaf4',
             des: "coma main"

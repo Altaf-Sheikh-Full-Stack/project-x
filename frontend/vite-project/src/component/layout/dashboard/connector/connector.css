@@ -5,11 +5,13 @@
 
 .connectorCompTopHeading h2{
     margin-bottom: 0px;
+    font-family: "IBM Plex Sans", sans-serif;
 }
 
 .connectorCompTopHeading p{
     margin-bottom: 0px;
     margin-top: 6px;
+    font-family: "Open Sans", sans-serif;
 }
 
 .connectorCompTop {

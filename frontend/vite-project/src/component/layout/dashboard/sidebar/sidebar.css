@@ -16,7 +16,11 @@
     cursor: pointer;
     text-decoration: none;
     color: black;
+    font-family: "IBM Plex Sans", sans-serif;
 }
+
+
+
 
 .link:hover:not(.active) {
     background-color: rgba(152, 73, 226, 0.5);

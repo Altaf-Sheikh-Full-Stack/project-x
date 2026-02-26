@@ -4,7 +4,7 @@ services:
     image: minio/minio
     container_name: minio
     networks:
-      - lake_net
+      - warehouse-net
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
@@ -18,7 +18,7 @@ services:
     depends_on:
       - minio
     networks:
-      - lake_net
+      - warehouse-net
     entrypoint: >
       /bin/sh -c "
       sleep 5;
@@ -33,7 +33,7 @@ services:
     depends_on:
       - create-bucket
     networks:
-      - lake_net
+      - warehouse-net
     ports:
       - "8181:8181"
     environment:
@@ -52,12 +52,17 @@ services:
     depends_on:
       - rest
     networks:
-      - lake_net
+      - warehouse-net
     ports:
       - "8080:8080"
     volumes:
       - ./trino/etc:/etc/trino
 
+# networks:
+#   lake_net:
+#     driver: bridge
+
 networks:
-  lake_net:
-    driver: bridge
+  warehouse-net:
+    external: true
+

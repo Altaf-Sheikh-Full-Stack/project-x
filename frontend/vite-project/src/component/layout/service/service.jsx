@@ -25,7 +25,13 @@ const Service = () => {
                     </div>
                 ))}
             </div>
-            <div className='sevice-grid-item' id='serice-grid-item3'>two</div>
+            <div className='sevice-grid-item' id='serice-grid-item3'>
+                {service && service.map((item, index) => (
+                    <div key={index}>
+                        <h1>{item.title}</h1>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

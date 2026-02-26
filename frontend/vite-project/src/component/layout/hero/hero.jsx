@@ -2,7 +2,7 @@ import './hero.css'
 import ButtonPrimary from "../../common/button/primary"
 import ButtonSecondary from "../../common/button/secondary"
 import img from './img/Component 1 (1).png'
-// import img from './img/Component 1.svg'
+// import img from './img/Rectangle-2.gif'
 const Hero = () => {
     return <div className="hero">
         <div className='hero-child'>
