@@ -6,6 +6,8 @@ const DeleteRowFileService =  async(id) => {
     if(!file){
         throw new Error("FILE_NOT_FOUND_TO_DELETE");
     }
+
+    return {fileName: file.fileName}
 }
 
 

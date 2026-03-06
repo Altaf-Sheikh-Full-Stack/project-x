@@ -7,7 +7,7 @@ const DashboardRoute = () => {
         <Routes>
             <Route path='/connector' element={<ConnectorPage />} />
             <Route path='/warehouse' element={<CatalogPage />} />
-            <Route path='warehouse/database:id' element={<DatabasePage />} />
+            <Route path='warehouse/:database' element={<DatabasePage />} />
         </Routes>
     )
 }

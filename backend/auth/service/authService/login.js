@@ -7,6 +7,7 @@ const loginService = async ({ email, password }) => {
     const user = await userModel.findOne({ email })
     if (!user) {
         throw new Error("email not found")
+        
     }
     const passwordFound = await bcrypt.compare(password, user.password)
     if (!passwordFound) {

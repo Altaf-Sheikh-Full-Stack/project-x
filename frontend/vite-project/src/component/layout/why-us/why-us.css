@@ -14,8 +14,31 @@
     cursor: default;
 }
 
-.why-grid-item h1 {
+#why-grid-item-top h1 {
     font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: 2%;
+    width: 50%;
+    color: #1B3139;
+    font-size: clamp(25px, 5vw, 56px);
+    margin-right: auto;
+}
+
+
+#why-grid-item-top p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #303030;
+    font-family: "IBM Plex Sans", sans-serif;
+    margin-right: auto;
+    width: 25%;
+}
+
+
+#why-grid-item-top button{
+    margin-right: auto;
 }
 
 .why-grid-item h3 {

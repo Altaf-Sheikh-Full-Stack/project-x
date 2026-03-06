@@ -4,6 +4,7 @@ import './index.css'
 import { BrowserRouter, Routes, Route, } from 'react-router'
 import AuthRoute from './route/auth.jsx'
 import DashboardRoute from './route/dashboard.jsx'
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,5 +19,5 @@ createRoot(document.getElementById('root')).render(
         <DashboardRoute/>
       </BrowserRouter>
     </QueryClientProvider>
-  </StrictMode>
+   </StrictMode>
 )

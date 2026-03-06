@@ -2,7 +2,9 @@ import './login.css'
 import Input from '../../../common/input/input'
 import ButtonPrimary from '../../../common/button/primary'
 import { NavLink } from 'react-router'
+
 const Login = () => {
+
     const sendLoginData = async (e) => {
         e.preventDefault();
         try {

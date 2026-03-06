@@ -9,7 +9,7 @@ const WhyUs = () => {
     return (
         <div className="why-grid">
             <div className='why-grid-item' id='why-grid-item-top'>
-                <h1>Your Trusted Partner in Quality, Reliability & Excellence</h1>
+                <h1 className='why-grid-item-top-h1'>Your Trusted Partner in Quality, Reliability & Excellence</h1>
                 <p>The Open, Secure, Transparent, Reliable, Flexible, Scalable, and Cost-Effective Alternative to Proprietary Data Platforms</p>
                 <ButtonPrimary buttonPrimary={"Start now"} />
             </div>

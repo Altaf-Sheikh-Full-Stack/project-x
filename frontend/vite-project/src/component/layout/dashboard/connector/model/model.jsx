@@ -35,7 +35,7 @@ const Model = (value) => {
             method: "PUT",
             body: e.target.files[0],
             headers: {
-                "Content-Type": "csv"
+                "Content-Type": "text/csv"
             }
         })
 

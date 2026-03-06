@@ -1,4 +1,4 @@
-import databaseService from "../../service/database/database.js"
+// import databaseService from "../../service/database/database.js"
 import jwt from 'jsonwebtoken'
 import { Trino, } from 'trino-client';
 
@@ -12,7 +12,7 @@ const databaseConroller = async (req, res) => {
         const trino =  Trino.create({
             server: 'http://trino:8080',
             catalog: 'iceberg',
-            // schema: 'altaf',
+            schema: decode.id,
             extraHeaders: {
                 'X-Trino-User': 'admin'
             }

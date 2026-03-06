@@ -19,7 +19,7 @@ const registerService = async ({name, email, password}) => {
         name,
         email,
         password:hashPassword,
-        verified:true
+        verified:false
     });
 
     const token = genrateToken(user)

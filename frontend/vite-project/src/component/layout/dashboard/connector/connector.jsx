@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './connector.css'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import ButtonPrimary from '../../../common/button/primary'
 import Loading from '../loading/loading'
 import Notfound from '../notfound/notfound'
@@ -35,6 +35,18 @@ const Connector = (value) => {
         })
     }
 
+
+    const mutation = useMutation({
+        mutationKey:['delete row file'],
+        mutationFn:deleteItem,
+        
+
+      
+    })
+
+
+
+
     return (
         <div className='connectorComp'>
             <div className='connectorCompTop'>
@@ -46,7 +58,6 @@ const Connector = (value) => {
                     <div onClick={value.onClick}>
                     <ButtonPrimary buttonPrimary={"Upload file"}/>
                     </div>
-                    {/* <button onClick={value.onClick}>Upload data</button> */}
                 </div>
             </div>
             <hr />
@@ -63,8 +74,9 @@ const Connector = (value) => {
                 <div className='connectorDatabaseTable'>
                     {data.map(file => (
                         <div key={file._id} className='connectorDatabaseTableChild'>
-                            <p >{file.fileName}</p>
-                            <a onClick={() => deleteItem(file._id, file.userid)} >Delete</a>
+                            <p></p>
+                            <p>{mutation.isPending ? "deleting" : file.fileName} </p>
+                            <a onClick={() => mutation.mutate(file._id, file.userid)} >Delete</a>
                         </div>
                     ))}
                 </div>

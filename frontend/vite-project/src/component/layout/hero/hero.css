@@ -28,6 +28,13 @@
     width: 100%;
 }
 
+.hero-2-child video{
+     height: 100%;
+    width: auto;
+    width: 100%;
+}
+
+
 .hero-child1-p {
     background-color: rgb(229, 215, 241);
     margin-bottom: 0%;

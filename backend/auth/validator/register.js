@@ -2,7 +2,7 @@
 
 const registerValidator = (name, email, password) => {
 
-    if (!name || name.length > 8) {
+    if (!name || name.length > 12) {
         throw new Error(!name ? "NAME_UNDEFINED" : "NAME_IS_MORE_THAN_MAX_LIMIT");
     }
 

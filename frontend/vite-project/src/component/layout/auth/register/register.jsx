@@ -1,14 +1,16 @@
 import Input from "../../../common/input/input"
 import ButtonPrimary from "../../../common/button/primary"
-import { NavLink } from "react-router"
+import { Navigate, NavLink, useNavigate } from "react-router"
 import { useState } from "react"
 import ErrorBlock from "../../../common/errorblock/errorblock"
 import './register.css'
 import eye from './img/eye.svg'
 import eyeClose from './img/eye-slash.svg'
-import App from "../../../../App";
+import useRegister from "../../../../hooks/auth/register"
+import { useMutation } from "@tanstack/react-query";
+
 const Register = () => {
-    App()
+
     const [crossLen, setCrossLen] = useState("")
     const [crossUppercase, setCrossUppercase] = useState("")
     const [crossLowercase, setCrossLowercase] = useState("")
@@ -23,7 +25,7 @@ const Register = () => {
     const [passwordType, setPasswordType] = useState("password")
     const [numpoint, setNumPoint] = useState(0)
 
-
+    const navigate = useNavigate()
 
     let bool
     const nameCount = (e) => {
@@ -105,49 +107,32 @@ const Register = () => {
     }
 
 
-    const sendRegisterData = async (e) => {
-        e.preventDefault();
+ 
+
+    const mutation = useRegister(navigate, setErrorDescription)
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if (numpoint === 4 && e.target.name.value.length < 12) {
-            try {
-
-                const res = await fetch("/api/auth/register", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        name: e.target.name.value,
-                        email: e.target.email.value,
-                        password: e.target.password.value,
-                    }),
-                })
-
-                const data = await res.json()
-                if (!res.ok) {
-                    console.log(await data.message)
-                    setErrorHeaders("")
-                    setErrorDescription(data.message)
-                    return
-                }
-
-                console.log("SUCCESS:", data.message);
-
-                window.location.reload();
-
-            } catch (err) {
-                console.log(err)
-            }
+            const formData = new FormData(e.currentTarget)
+            const formValues = Object.fromEntries(formData)
+            mutation.mutate(formValues)
         } else {
             console.log("come up with all point")
         }
 
-
     }
+
+
+
+
+
     return (
 
         <div className="loginTop">
             <ErrorBlock heading={errorHeaders} description={errorDescription} />
-            <form className="loginForm" onSubmit={sendRegisterData}>
+            <form className="loginForm" onSubmit={handleSubmit}>
                 <div>
                     <h2 style={{ marginBottom: 0 }}>Create an account</h2>
                     <p >All filed is required*</p>
@@ -174,7 +159,7 @@ const Register = () => {
                     <p style={{ textDecoration: crossNumber }}>Password should containe number 1-9</p>
                     <p style={{ textDecoration: crossSpecial }}>Password should containe speacial character !  @  #  $  %  &  ? </p>
                 </span>
-                <ButtonPrimary buttonPrimary={"Create account"} />
+                <ButtonPrimary buttonPrimary={mutation.isPending ? "Creating..." : "Create Account"} />
                 <p>already have a account? <NavLink to={'/login'}>
                     Login
                 </NavLink></p>

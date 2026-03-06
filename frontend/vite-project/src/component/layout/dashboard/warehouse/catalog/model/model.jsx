@@ -3,20 +3,41 @@ import ButtonPrimary from "../../../../../common/button/primary"
 import { useEffect, useState } from "react"
 import './model.css'
 import ButtonSecondary from "../../../../../common/button/secondary"
+import { useMutation } from "@tanstack/react-query"
+
+
 const DatabaseModel = (value) => {
+
+
     
-    const DatatoServer = (e) => {
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const formValues = Object.fromEntries(formData)
-        fetch('/api/user/database', {
-            method:"POST",
+    const sendFromData = async (data) => {
+        return fetch('/api/user/file', {
+            method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                formValues
-            }) 
+            body: JSON.stringify(data)
         })
     }
+
+    const mutation = useMutation({
+        mutationKey: ["create-folder"],
+        mutationFn: sendFromData,
+
+        onSuccess:() => {
+            showdata()
+        }
+    })
+
+
+    const submitForm = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        formData.append("type", "folder")
+        const formValues = Object.fromEntries(formData)
+        console.log(formValues)
+        mutation.mutate(formValues)
+    }
+
+
     const [show, setShow] = useState("none")
     useEffect(() => {
         setShow(value.set)
@@ -37,7 +58,7 @@ const DatabaseModel = (value) => {
                     </div>
                 </div>
 
-                <form className="DatabaseModelContentBottom" onSubmit={DatatoServer}>
+                <form className="DatabaseModelContentBottom" onSubmit={submitForm}>
                     <Input name={"name"} placeholder={"enter database name"} />
                     <ButtonPrimary buttonPrimary={"Send"} />
                 </form>

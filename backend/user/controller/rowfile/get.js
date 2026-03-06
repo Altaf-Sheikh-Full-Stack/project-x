@@ -5,7 +5,6 @@ const getRowFile = async (req, res) => {
         const tokens = req.cookies.AuthToken
         if(!tokens){
             throw new Error("Token not found");
-            
         }
         const decode = jwt.verify(tokens, process.env.JWT_KEY)
         const rowfile = await getRowFileService(decode)

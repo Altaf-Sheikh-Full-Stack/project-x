@@ -3,6 +3,8 @@ import registerValidator from '../../validator/register.js';
 const registerUser = async (req, res) => {
     try {
 
+        console.log(req.body)
+
         const name = req?.body?.name
         const email = req?.body?.email
         const password = req?.body?.password
@@ -14,15 +16,13 @@ const registerUser = async (req, res) => {
             email,
             password,
         })
-
-
         res.cookie("AuthToken", token)
 
-        return res.status(200).json({
+        res.status(200).json({
             message: "Registered successfully",
         });
 
-
+    
 
     } catch (err) {
 
@@ -36,7 +36,7 @@ const registerUser = async (req, res) => {
 
         if (err.message === "NAME_IS_MORE_THAN_MAX_LIMIT") {
             return res.status(401).json({
-                message: "Name length should not be more then 8 char",
+                message: "Name length should not be more then 12 char",
             });
         }
 
@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
             });
         }
 
-        
+
         if (err.message === "PASSWORD_UNDEFINED") {
             return res.status(401).json({
                 message: "Please enter password",
@@ -73,7 +73,7 @@ const registerUser = async (req, res) => {
 
         if (err.message === "USER_EXISTS") {
             return res.status(401).json({
-                message: "The email you are trying to create an account with is suspended, blacklisted, or invalid. Please try creating an account with a different email address.",
+                message: "The email you are trying to create an account with is suspended, blacklisted, invalid or in use. Please try creating an account with a different email address.",
             });
         }
 

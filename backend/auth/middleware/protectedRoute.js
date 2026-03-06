@@ -12,17 +12,35 @@ const protectRoute = (req, res, next) => {
         const token = req.cookies.AuthToken
 
         if (!token) {
-            next()
+            return next()
         }
+
+        if (req.path === '/verify') {
+            return next();
+        }
+
+        if (req.path === '/verifying') {
+            return next();
+        }
+
+          if (req.path === '/exp') {
+            return next();
+        }
+
+
+        
+
         if (token) {
             const decode = jwt.verify(token, process.env.JWT_KEY)
             if (decode.verified === false) {
                 res.status(400).json({
-                    message: "You already login but email is not verified"
+                    message: "You already login but email is not verified",
                 })
+
             }
+
             if (decode.verified === true) {
-                res.status(200).json({
+                return res.status(200).json({
                     message: "You already login and the email is verified"
                 })
             }
