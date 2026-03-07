@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import register from "../../api/auth/register";
+import { useState } from "react";
 
 const useRegister = (navigate) => {
-    return useMutation({
+
+    const [error, setError] = useState()
+     const mutation = useMutation({
         mutationFn: register,
 
         onSuccess: (data) => {
@@ -11,9 +14,12 @@ const useRegister = (navigate) => {
         },
 
         onError: (error) => {
+            setError(error.message)
             console.log(error.message)
         }
     })
+
+    return { mutation, error }
 }
 
 export default useRegister

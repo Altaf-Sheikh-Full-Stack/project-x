@@ -1,12 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './catalog.css'
 import DatabaseModel from './model/model'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { useQueryClient } from '@tanstack/react-query';
-
-
+import { useNavigate, useParams } from 'react-router';
+import useGetParentFile from '../../../../../hooks/dashboard/warehouse/getfile/parent';
+import useDeleteParentFile from '../../../../../hooks/dashboard/warehouse/deletefile/parent';
 const WarehouseCompo = (value) => {
-    const queryClient = useQueryClient();
+    
+    const mutation = useDeleteParentFile()
+    const {data, error, isPending} = useGetParentFile()
+
+    const navigate = useNavigate()
+
+    const param = useParams()
+
+   
     const [open, setOpen] = useState("none")
 
     const show = () => {
@@ -18,76 +26,43 @@ const WarehouseCompo = (value) => {
     }
 
 
-    const getfile = async () => {
-        const res = await fetch('/api/user/get/folder')
-        if (!res) {
-            throw new Error("Data not found ");
-        }
-        const data = await res.json()
-        console.log(data.file.name)
-        return await data.file ?? []
-    }
 
-    const deletefile = async (data) => {
-        const res = await fetch('/api/user/delete/folder', {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        })
-
-        if(!res.ok){
-            throw new error("error deleting file")
-        }
-    }
-
-    const mutation = useMutation({
-        mutationKey: ['delete file'],
-        mutationFn: deletefile,
-
-        onMutate: async (variables) => {
-            await queryClient.cancelQueries({ queryKey: ['get folder'] })
-
-            const previousData = queryClient.getQueryData(['get folder'])
-
-            queryClient.setQueryData(['get folder'], (old = []) =>
-                old.filter(file => file.id !== variables.id)
-            )
-
-            return { previousData }
-        },
-
-        onError: (err, variables, context) => {
-            if (context?.previousData) {
-                queryClient.setQueryData(['get folder'], context.previousData)
-            }
-        },
-
-        onSettled: () => {
-            queryClient.invalidateQueries({ queryKey: ['get folder'] })
-        }
-    })
 
     const submitDeleteFile = (event, id) => {
         event.preventDefault()
-        mutation.mutate({ id })
+        mutation.mutate( id )
     }
 
 
 
 
-    const { data = [], error, isPending } = useQuery({
-        queryKey: ['get folder'],
-        queryFn: getfile,
-    })
 
+    if(Object.keys(param).length === 0){
+        console.log("no parem")
+    }else{
+        console.log("parem")
+    }
 
-    const getChildFile = () => {
-        fetch()
+    const getChildFile = async (id) => {
+        navigate(`/warehouse/${id}`)
+        const res = await fetch('/api/user/get/folder/child', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({param})
+        })
+
+        const data = await res.json()
+        console.log(data)
+        if(!res.ok){
+            throw new Error(data.message);
+        }
+
+        return data
     }
 
     const getChildMutute = useMutation({
-        mutationKey:['getChildComp'],
-        mutationFn:getChildFile
+        mutationKey: ['getChildComp'],
+        mutationFn: getChildFile
     })
 
 
@@ -110,11 +85,11 @@ const WarehouseCompo = (value) => {
                 <button>Search</button>
             </div>
             <div className='wharehouseDatabase'>
-                <p>Database</p>
+                <p></p>
                 <div className='wharehouseDatabaseTable'>
                     {data.map((file) => (
                         <div className='wharehouseDatabaseTableChild'>
-                            <p onClick={() => getChild()}>{file.name}</p>
+                            <p onClick={() => getChildFile(file._id)}>{file.name}</p>
                             <a onClick={() => submitDeleteFile(event, file._id)} href="">Delete</a>
                         </div>
                     ))}

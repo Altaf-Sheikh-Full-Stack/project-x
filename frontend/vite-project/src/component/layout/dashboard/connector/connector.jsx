@@ -1,51 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './connector.css'
-import { useMutation, useQuery } from '@tanstack/react-query'
+// import { useMutation, useQuery } from '@tanstack/react-query'
 import ButtonPrimary from '../../../common/button/primary'
 import Loading from '../loading/loading'
 import Notfound from '../notfound/notfound'
+import useRowFile from '../../../../hooks/dashboard/connector/getRowFile'
+import useDeleteRowFile from '../../../../hooks/dashboard/connector/deleteRowFile'
 const Connector = (value) => {
-    const getrowfile = async () => {
-        const response = await fetch('/api/user/get/rowfile')
-        if (!response.ok) {
-            throw new Error("Failed to fetch data")
-        }
-        const json = await response.json()
-        return json.rowfile ?? []
-    }
+
+    const { data, isPending, error } = useRowFile()
+    const  mutation  = useDeleteRowFile()
 
 
-    const { data = [], isPending, error } = useQuery({
-        queryKey: ['fileName'],
-        queryFn: getrowfile,
-    })
-
-    const deleteItem = (id, userid) => {
-        console.log(id)
-        console.log(userid)
-        fetch('/api/user/delete/rowfile', {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                id: id,
-                userid: userid
-            })
-        })
-    }
-
-
-    const mutation = useMutation({
-        mutationKey:['delete row file'],
-        mutationFn:deleteItem,
         
-
-      
-    })
-
-
-
+        
+    
 
     return (
         <div className='connectorComp'>
@@ -56,7 +25,7 @@ const Connector = (value) => {
                 </div>
                 <div className='connectorCompTopButton'>
                     <div onClick={value.onClick}>
-                    <ButtonPrimary buttonPrimary={"Upload file"}/>
+                        <ButtonPrimary buttonPrimary={"Upload file"} />
                     </div>
                 </div>
             </div>
@@ -68,15 +37,14 @@ const Connector = (value) => {
 
             <div className='connectorDatabase'>
                 {error && <p>Somthing went wrong can't get data try after some time</p>}
-                {isPending && <Loading/>}
-                
-                {!isPending  && data.length === 0 && <Notfound value={'No file found click upload file button(at the top right) to upload file and get started'}/>}
+                {isPending && <Loading />}
+
+                {!isPending && data.length === 0 && <Notfound value={'No file found click upload file button(at the top right) to upload file and get started'} />}
                 <div className='connectorDatabaseTable'>
                     {data.map(file => (
                         <div key={file._id} className='connectorDatabaseTableChild'>
-                            <p></p>
-                            <p>{mutation.isPending ? "deleting" : file.fileName} </p>
-                            <a onClick={() => mutation.mutate(file._id, file.userid)} >Delete</a>
+                            <p>{file.fileName} </p>
+                            <a onClick={() => mutation.mutate(file._id)} >Delete</a>
                         </div>
                     ))}
                 </div>

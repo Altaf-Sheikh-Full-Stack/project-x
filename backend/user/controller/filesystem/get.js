@@ -5,7 +5,6 @@ const getFileController = async (req, res) => {
     try {
         const token = req.cookies.AuthToken
         const decode = jwt.verify(token, process.env.JWT_KEY)
-        console.log(decode)
         const file = await getFileService(decode.id)
         res.status(200).json({
             file

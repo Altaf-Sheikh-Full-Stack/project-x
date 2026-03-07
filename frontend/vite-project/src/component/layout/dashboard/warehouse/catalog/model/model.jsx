@@ -3,35 +3,25 @@ import ButtonPrimary from "../../../../../common/button/primary"
 import { useEffect, useState } from "react"
 import './model.css'
 import ButtonSecondary from "../../../../../common/button/secondary"
-import { useMutation } from "@tanstack/react-query"
-
-
+import { useParams } from "react-router"
+import useCreateFile from "../../../../../../hooks/dashboard/warehouse/createFile"
 const DatabaseModel = (value) => {
+    const param = useParams()
 
-
-    
-    const sendFromData = async (data) => {
-        return fetch('/api/user/file', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        })
-    }
-
-    const mutation = useMutation({
-        mutationKey: ["create-folder"],
-        mutationFn: sendFromData,
-
-        onSuccess:() => {
-            showdata()
-        }
-    })
+    const { mutation, hide } = useCreateFile()
 
 
     const submitForm = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         formData.append("type", "folder")
+
+        if (Object.keys(param).length === 0) {
+            console.log(param)
+            formData.append("parent", null)
+        } else {
+            formData.append("parent", param.id)
+        }
         const formValues = Object.fromEntries(formData)
         console.log(formValues)
         mutation.mutate(formValues)

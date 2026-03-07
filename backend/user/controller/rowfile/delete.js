@@ -5,7 +5,9 @@ import jwt from 'jsonwebtoken'
 
 const deleteRowFileController = async (req, res) => {
     try {
+        console.log(req.body)
         const { id } = req.body
+        console.log(id)
         const { fileName } = await deleteRowFileService(id)
         const tokens = req.cookies.AuthToken
         const decode = jwt.verify(tokens, process.env.JWT_KEY)
@@ -27,8 +29,10 @@ const deleteRowFileController = async (req, res) => {
 
         await minioClient.send(command);
 
-        res.json({ message: "File deleted successfully" });
-
+        res.status(200).json({
+            message: "File deleted successfully"
+        })
+    
     } catch (err) {
         if (err.message) {
             res.status(404).json({
