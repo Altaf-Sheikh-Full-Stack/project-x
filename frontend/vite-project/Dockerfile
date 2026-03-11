@@ -9,4 +9,5 @@ COPY . .
 RUN npm run build
 RUN npm install -g serve
 
-CMD ["sh","-c","serve -s dist -l ${PORT:-5173}"]
+
+CMD ["sh","-c","serve -s dist -l ${PORT:-8080}"]
