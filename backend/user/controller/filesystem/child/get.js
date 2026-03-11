@@ -3,11 +3,9 @@ import getChildFileService from "../../../service/filesystem/child/get.js"
 
 
 const getChildFileController = async (req, res) => {
-
     try {
-        console.log(req.body)
-        const { param } = req.body
-        console.log(param)
+        console.log("yes")
+        console.log("budy" + req.body)
         await getChildFileService(param)
 
         res.status(200).json({

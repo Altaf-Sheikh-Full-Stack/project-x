@@ -4,11 +4,11 @@ import getChildFile from "../../../../api/dashboard/warehouse/getfile/child"
 
 
 const useGetChildFile = () => {
-    const mutation = useMutation({
+    const getChidMutation = useMutation({
         mutationFn:getChildFile
     })
 
-    return mutation
+    return getChidMutation
 }
 
 export default useGetChildFile

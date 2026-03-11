@@ -1,20 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './catalog.css'
 import DatabaseModel from './model/model'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { useNavigate, useParams } from 'react-router';
 import useGetParentFile from '../../../../../hooks/dashboard/warehouse/getfile/parent';
 import useDeleteParentFile from '../../../../../hooks/dashboard/warehouse/deletefile/parent';
+import useGetChildFile from '../../../../../hooks/dashboard/warehouse/getfile/child';
+import { useNavigate, useParams } from 'react-router';
 const WarehouseCompo = (value) => {
-    
-    const mutation = useDeleteParentFile()
-    const {data, error, isPending} = useGetParentFile()
 
     const navigate = useNavigate()
 
     const param = useParams()
 
-   
+
+
+    const getChidMutation = useGetChildFile()
+    const mutation = useDeleteParentFile()
+    const { data } = useGetParentFile()
+
+
     const [open, setOpen] = useState("none")
 
     const show = () => {
@@ -30,40 +33,19 @@ const WarehouseCompo = (value) => {
 
     const submitDeleteFile = (event, id) => {
         event.preventDefault()
-        mutation.mutate( id )
+        mutation.mutate(id)
     }
 
 
-
-
-
-    if(Object.keys(param).length === 0){
-        console.log("no parem")
-    }else{
-        console.log("parem")
-    }
-
-    const getChildFile = async (id) => {
+    const getChidFile = (id) => {
         navigate(`/warehouse/${id}`)
-        const res = await fetch('/api/user/get/folder/child', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({param})
-        })
-
-        const data = await res.json()
-        console.log(data)
-        if(!res.ok){
-            throw new Error(data.message);
-        }
-
-        return data
+        getChidMutation.mutate(id)
     }
 
-    const getChildMutute = useMutation({
-        mutationKey: ['getChildComp'],
-        mutationFn: getChildFile
-    })
+    useEffect(() => {
+        getChidMutation.mutate(param.id)
+    }, [])
+
 
 
 
@@ -89,7 +71,7 @@ const WarehouseCompo = (value) => {
                 <div className='wharehouseDatabaseTable'>
                     {data.map((file) => (
                         <div className='wharehouseDatabaseTableChild'>
-                            <p onClick={() => getChildFile(file._id)}>{file.name}</p>
+                            <p onClick={() => getChidFile(file._id)}>{file.name}</p>
                             <a onClick={() => submitDeleteFile(event, file._id)} href="">Delete</a>
                         </div>
                     ))}

@@ -1,7 +1,7 @@
 .why-grid {
     display: grid;
-    /* grid-template-columns: auto auto auto; */
-    /* grid-template-rows: auto auto auto auto auto; */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     max-width: 1920px;
     margin: auto;
 }
@@ -13,6 +13,12 @@
     border-radius: 5px;
     cursor: default;
 }
+
+
+#why-grid-item-top{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.62) 20%, rgba(237, 221, 83, 1) 100%);
+}
+
 
 #why-grid-item-top h1 {
     font-family: "Open Sans", sans-serif;
@@ -37,21 +43,32 @@
 }
 
 
-#why-grid-item-top button{
+.why-grid-item-child h1 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 0%;
+    color: #1B3139;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.why-grid-item-child p {
+
+    margin-bottom: 0%;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #303030;
+    font-family: "IBM Plex Sans", sans-serif;
+
+}
+
+#why-grid-item-top button {
     margin-right: auto;
 }
 
-.why-grid-item h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1d1d1d;
-}
 
-.why-grid-item li {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1d1d1d;
-    /* background-color: red; */
-    padding: 10px;
-}
 
 #why-grid-item-top {
     grid-area: 1/1/1/4;
@@ -68,9 +85,10 @@
 
 #why-grid-item3 {
     grid-area: 2/3/6;
-    background-color: blueviolet;
-    color: white;
+    /* background-color: black; */
 
+    background: #ffffff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 28%, rgba(237, 221, 83, 1) 100%);
 }
 
 #why-grid-item3 h3 {
@@ -78,7 +96,7 @@
 }
 
 #why-grid-item3 li {
-    color: white;
+    margin: 10px;
 }
 
 #why-grid-item1 {
@@ -103,7 +121,8 @@
 
 .why-grid-item img {
     width: 100%;
-    height: 70%;
+    height: 80%;
+    object-fit: cover;
 }
 
 
@@ -117,15 +136,15 @@
 
     }
 
-    #why-grid-item4{
-         grid-area: 4/1/4/4;
+    #why-grid-item4 {
+        grid-area: 4/1/4/4;
     }
 
-    #why-grid-item5{
+    #why-grid-item5 {
         grid-area: 5/1/5/4;
     }
 
-    #why-grid-item3{
+    #why-grid-item3 {
         grid-area: 6/1/6/4;
 
     }

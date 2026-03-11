@@ -3,7 +3,6 @@ import register from "../../api/auth/register";
 import { useState } from "react";
 
 const useRegister = (navigate) => {
-
     const [error, setError] = useState()
      const mutation = useMutation({
         mutationFn: register,

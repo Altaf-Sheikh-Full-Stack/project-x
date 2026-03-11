@@ -1,10 +1,10 @@
 
 
-const login = async (data) => {
+const login = async (value) => {
     const res = await fetch('/api/auth/login', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:JSON.stringify(data)
+        body:JSON.stringify(value)
     })
 
 

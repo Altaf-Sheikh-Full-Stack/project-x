@@ -15,20 +15,10 @@ const protectRoute = (req, res, next) => {
             return next()
         }
 
-        if (req.path === '/verify') {
-            return next();
-        }
-
-        if (req.path === '/verifying') {
-            return next();
-        }
-
-          if (req.path === '/exp') {
-            return next();
-        }
 
 
-        
+
+
 
         if (token) {
             const decode = jwt.verify(token, process.env.JWT_KEY)
@@ -44,6 +34,19 @@ const protectRoute = (req, res, next) => {
                     message: "You already login and the email is verified"
                 })
             }
+        }
+
+
+        if (req.path === '/verify') {
+            return next();
+        }
+
+        if (req.path === '/verifying') {
+            return next();
+        }
+
+        if (req.path === '/exp') {
+            return next();
         }
     } catch (err) {
         console.log(err)

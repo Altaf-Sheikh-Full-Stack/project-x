@@ -7,7 +7,7 @@ const Hero = () => {
     return <div className="hero">
         <div className='hero-child'>
             <div className='hero-child1'>
-                <p className='hero-child1-p'>An open source and free project</p>
+                <a href='https://github.com/Altaf-Sheikh-Full-Stack/project-x' className='hero-child1-p'>An open source and free project</a>
                 <h1>Transform Your Business with AI & Big Data</h1>
                 <div className='hero-child1Content'>
                    

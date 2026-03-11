@@ -1,32 +1,15 @@
 import './footer.css'
 
-const Footer = () =>{
-    return(
+const Footer = () => {
+    return (
         <div className="footer">
-            <div className="footer-item" id='footer-item1'>
-                <h3>Headingtop</h3>
-                <p>colma solma</p>
+            <div className="footer-top">
+                <a href="">Home</a>
+                <a href="">About us</a>
+                <a href="">privacy policy</a>
+                <a href="">Term and condition</a>
             </div>
-            <div className="footer-item" id='footer-item2'>
-                <h3>Heading</h3>
-                <p>colma solma</p>
-            </div>
-            <div className="footer-item" id='footer-item3'>
-                <h3>Heading</h3>
-                <p>colma solma</p>
-            </div>
-            <div className="footer-item" id='footer-item4'>
-                <h3>Heading</h3>
-                <p>colma solma</p>
-            </div>
-            <div className="footer-item" id='footer-item5'>
-                <h3>Heading</h3>
-                <p>colma solma</p>
-            </div>
-            <div className="footer-item" id='footer-item6'>
-                <h3>Heading6</h3>
-                <p>colma solma</p>
-            </div>
+                <h1>Website</h1>
         </div>
     )
 }

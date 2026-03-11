@@ -1,5 +1,10 @@
-const getParentFile = async () => {
-    const res = await fetch('/api/user/get/file')
+const getParentFile = async (id) => {
+    console.log(id)
+    const res = await fetch('/api/user/get/file', {
+        method:"POST",
+        headers:{ "Content-Type": "application/json" },
+        body:JSON.stringify({id})
+    })
 
     const data = await res.json()
 

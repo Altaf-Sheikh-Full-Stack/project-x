@@ -18,9 +18,9 @@ route.delete('/delete/rowfile', deleteRowFileController)
 route.get('/get/rowfile', getRowFileController)
 route.post('/database', databaseConroller)
 route.post('/file', fileSystem)
-route.get("/get/file", getFileController)
+route.post("/get/file", getFileController)
 route.delete('/delete/file', deleteFileController)
-route.get('/get/file/child', getChildFileController)
+route.post('/get/file/child', getChildFileController)
 
 
 export default route
