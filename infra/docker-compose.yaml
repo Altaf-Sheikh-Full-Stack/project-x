@@ -54,13 +54,6 @@ services:
       - warehouse-net
 
 
-
-
-# networks:
-#   app-network:
-#     driver: bridge
-
-
 networks:
   warehouse-net:
     external: true
