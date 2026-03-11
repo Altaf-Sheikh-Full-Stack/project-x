@@ -9,5 +9,6 @@ COPY . .
 RUN npm run build
 RUN npm install -g serve
 
+EXPOSE 5173
 
-CMD ["sh","-c","serve -s dist -l ${PORT:-8080}"]
+CMD ["npm", "run", "dev"]
