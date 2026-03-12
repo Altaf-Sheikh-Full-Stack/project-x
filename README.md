@@ -1,6 +1,8 @@
 # project-x - A open source alternative to databricks and snowflake
 <img width="1905" height="989" alt="image" src="https://github.com/user-attachments/assets/b1c963b6-f0cb-4b96-bebb-a0f3afcc1674" />
-<img width="1896" height="982" alt="image" src="https://github.com/user-attachments/assets/e261d145-a433-4e79-a934-6e09ef61f941" />
+<img width="1909" height="965" alt="image" src="https://github.com/user-attachments/assets/cb3877ca-04d8-42db-b16a-cc78c14e1f82" />
+<img width="1902" height="967" alt="image" src="https://github.com/user-attachments/assets/44300e92-8d66-4e00-ae36-73ba2a5628bf" />
+
 
 # 🚀 Cloud-Native Lakehouse Data Warehouse Platform
 
